@@ -1,12 +1,26 @@
-let soma = 0;
-let infDiv = document.getElementById("info");
+function encontrarMaior() {
 
-for (let i = 1; i <= 5; i++) {
-  let numero = parseInt(prompt(`Digite o ${i}º número:`));
-  soma += numero;
+  let num1 = parseInt(document.getElementById("numero 1").value);
+  let num2 = parseInt(document.getElementById("numero 2").value);
+  let num3 = parseInt(document.getElementById("numero 3").value);
+  let num4 = parseInt(document.getElementById("numero 4").value);
+  let num5 = parseInt(document.getElementById("numero 5").value);
+
+
+  let maior = num1;
+  if (num2 > maior) {
+    maior = num2;
+  }
+  if (num3 > maior) {
+    maior = num3;
+  }
+  if (num4 > maior) {
+    maior = num4;
+  }
+  if (num5 > maior) {
+    maior = num5;
+  }
+
+
+  alert("O maior número é: " + maior);
 }
-
-let media = soma / 5;
-
-infDiv.innerHTML += "<p>A soma dos números é: " + soma + "</p>";
-infDiv.innerHTML += "<p>e a média é: " + media + "</p>";

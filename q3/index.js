@@ -1,54 +1,45 @@
-let nome, idade, salario, sexo, estCivil;
-let dadosUsuarioDiv = document.getElementById("dados-usuario");
+function validarDados() {
 
-do{
-  nome = prompt("Digite o nome do usúario:");
-  if(nome.length <= 3){
-    alert("você precisa digitar um nome com mais de três caracteres");
+  const nome = document.getElementById("nome").value.trim();
+  const idade = document.getElementById("idade").value;
+  const salario = document.getElementById("salario").value;
+  const sexo = document.querySelector('input[name="sexo"]:checked').value;
+  const estadoCivil = document.getElementById("estado-civil").value;
+  
+  if (nome.length < 4) {
+  alert("Nome deve ter pelo menos 4 caracteres.");
+  return false;
+  } else {
+  document.getElementById("error-nome").textContent = "";
   }
-} while (nome.length <= 3);
-
-do {
-  idade = parseInt(prompt("Digite a idade: "))
+  
   if (idade < 0 || idade > 150) {
-    alert("A idade deve estar entre 0 e 150 anos");
+  alert("Idade deve estar entre 0 e 150.");
+  return false;
+  } else {
+  document.getElementById("error-idade").textContent = "";
   }
-} while (idade < 0 || idade > 150);
 
-do {
-  salario = parseFloat(prompt("Digite o salário do usuário"));
-  if ( salario <= 0){
-    alert("O salário deve ser maior do que zero");
+  if (salario <= 0) {
+  alert("Salário deve ser maior que zero.");
+  return false;
+  } else {
+  document.getElementById("error-salario").textContent = "";
   }
-} while (salario <= 0);
 
-do {
-  sexo = prompt("Digite o sexo(F ou M): ");
-  if(sexo.toUpperCase() !== "F" && sexo.toUpperCase() !== "M"){
-    alert("Você precisa digitar F ou M");
+  if (!sexo) {
+  alert("Selecione o sexo.");
+  return false;
+  } else {
+  document.getElementById("error-sexo").textContent = "";
   }
-} while(sexo.toUpperCase() !== "F" && sexo.toUpperCase() !== "M");
 
-do {
-  estCivil = prompt("Digite o estado civil (C, S, V ou D):");
-  if (
-    estCivil.toUpperCase() !== "C" &&
-    estCivil.toUpperCase() !== "S" &&
-    estCivil.toUpperCase() !== "V" &&
-    estCivil.toUpperCase() !== "D"
-  ) {
-    alert("Você precisa digitar C, S, V ou D");
+  if (estadoCivil === "") {
+  document.getElementById("error-estado-civil").textContent = "Selecione o estado civil.";
+  return false;
+  } else {
+  document.getElementById("error-estado-civil").textContent = "";
   }
-} while (
-  estCivil.toUpperCase() !== "C" &&
-  estCivil.toUpperCase() !== "S" &&
-  estCivil.toUpperCase() !== "V" &&
-  estCivil.toUpperCase() !== "D"
-);
 
-
-dadosUsuarioDiv.innerHTML += "<p>Nome do usuário: " + nome + "</p>";
-dadosUsuarioDiv.innerHTML += "<p>Idade do usuário: " + idade + " anos</p>";
-dadosUsuarioDiv.innerHTML += "<p>Salário do usuário: " + salario + "</p>";
-dadosUsuarioDiv.innerHTML += "<p>Sexo do usuário: " + sexo + "</p>";
-dadosUsuarioDiv.innerHTML += "<p>Estado civil do usuário: " + estCivil + "</p>";
+  return true;
+  }

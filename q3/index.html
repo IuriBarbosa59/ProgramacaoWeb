@@ -4,10 +4,45 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="Stylesheet" href="style.css">
     <title>q3</title>
 </head>
 <body>
-    <div id="dados-usuario"></div>
+    <div id="container">
+        <h2>Cadastro Pessoal</h2>
+        <form id="form-dados" onsubmit="return validarDados()">
+          <label for="nome">Nome:</label>
+          <input type="text" id="nome" name="nome"><br>
+          <span id="error-nome" class="error"></span>
+      
+          <label for="idade">Idade:</label>
+          <input type="number" id="idade" name="idade"><br>
+          <span id="error-idade" class="error"></span>
+      
+          <label for="salario">Salário:</label>
+          <input type="number" id="salario" name="salario"><br>
+          <span id="error-salario" class="error"></span>
+      
+          <label for = "sexo">Sexo:</label>
+          <select id="sexo" name="sexo"> 
+            <option value ="">Selecione</option>
+            <option value ="f">Feminino</option>
+            <option value ="m">Masculino</option>
+          </select> 
+          <span id="error-sexo" class="error"></span>
+      
+          <label>Estado civil:</label>
+          <select id="estado-civil" name="estado-civil">
+            <option value="s">Solteiro</option>
+            <option value="c">Casado</option>
+            <option value="v">Viúvo</option>
+            <option value="d">Divorciado</option>
+          </select><br>
+          <span id="error-estado-civil" class="error"></span>
+      
+          <button type="submit">Enviar</button>
+        </form>
+      </div>
     <script src="index.js"></script>
 </body>
 </html>
